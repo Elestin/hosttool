@@ -5,13 +5,14 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read       # needed to checkout
-  pages: write         # needed to publish
-  id-token: write      # needed by configure-pages
+  contents: read     # for checkout
+  pages: write       # to publish
+  id-token: write    # required by configure-pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -24,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build production bundle
+      - name: Build
         run: npm run build
 
       - name: Configure GitHub Pages
@@ -38,6 +39,7 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
