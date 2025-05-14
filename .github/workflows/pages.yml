@@ -5,32 +5,32 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read       # for checkout
-  pages: write         # to publish
+  contents: read       # allow checkout
+  pages: write         # allow publishing
   id-token: write      # required by configure-pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build production bundle
+      - name: Build
         run: npm run build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload build artifacts
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: build
