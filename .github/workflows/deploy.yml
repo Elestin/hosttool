@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Build and Deploy
 
 on:
@@ -7,9 +6,9 @@ on:
       - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read     # allows checkout
+  pages: write       # allows pushing to gh-pages
+  id-token: write    # required by peaceiris action
 
 jobs:
   build-deploy:
@@ -17,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
