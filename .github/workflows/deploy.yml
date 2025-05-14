@@ -1,8 +1,15 @@
+# .github/workflows/deploy.yml
 name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-deploy:
