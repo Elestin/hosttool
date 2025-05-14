@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/hosttool/static/css/main.31d6cfe0.css",
+    "main.js": "/hosttool/static/js/main.7119d5e4.js",
+    "index.html": "/hosttool/index.html",
+    "main.7119d5e4.js.map": "/hosttool/static/js/main.7119d5e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.7119d5e4.js"
+  ]
+}
